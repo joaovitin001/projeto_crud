@@ -25,4 +25,21 @@ def criar_ususario(nome, email, senha):
     else:
         print('Falha ao conectar ao banco!')
 
+def listar_usuario():
+    if conn.is_connected():
+        print('Banco de dados conectado com sucesso!')
+
+        cursor = conn.cursor()
+
+        cursor.execute('select id, nome, email  from usuario;')
+
+        usuarios = cursor.fetchall()
+        return usuarios
+    else:
+        print('Falha ao conectar ao banco de dados')
+
+if __name__=='__main__':
+    listar_usuario()
+
+
         
